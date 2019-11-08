@@ -1,0 +1,196 @@
+core: 7.x
+api: 2
+projects:
+  pressflow:
+    type: core
+    download:
+      type: file
+      url: 'https://github.com/pantheon-systems/drops-7/archive/7.67.zip'
+  admin_menu:
+    subdir: contrib
+    version: 3.0-rc6
+  admin_views:
+    subdir: contrib
+    version: '1.6'
+  adminimal_admin_menu:
+    subdir: contrib
+    version: '1.9'
+  addressfield:
+    subdir: contrib
+    version: '1.3'
+  better_watchdog_ui:
+    subdir: contrib
+    version: '3.1'
+  chosen:
+    subdir: contrib
+    version: '2.1'
+  ctools:
+    subdir: contrib
+    version: '1.15'
+  devel:
+    subdir: contrib
+    version: '1.7'
+  diff:
+    subdir: contrib
+    version: '3.4'
+  elysia_cron:
+    subdir: contrib
+    version: '2.7'
+  entity:
+    subdir: contrib
+    version: '1.9'
+  entitycache:
+    subdir: contrib
+    version: '1.5'
+  entityconnect:
+    subdir: contrib
+    version: 2.0-rc2
+  entityreference:
+    subdir: contrib
+    version: '1.5'
+    patch:
+      - 'https://www.drupal.org/files/issues/entityreference-restricted_access-21534630-29.patch'
+  environment:
+    subdir: contrib
+    version: '1.0'
+  environment_indicator:
+    subdir: contrib
+    version: '2.9'
+  features:
+    subdir: contrib
+    version: '2.11'
+  features_extra:
+    subdir: contrib
+    version: 1.x-dev
+  field_collection:
+    subdir: contrib
+    version: 1.0-beta13
+  field_group:
+    subdir: contrib
+    version: '1.6'
+  field_hidden:
+    subdir: contrib
+    version: '1.8'
+  file_entity:
+    subdir: contrib
+    version: '2.25'
+  filter_perms:
+    subdir: contrib
+    version: '1.0'
+  fpa:
+    subdir: contrib
+    version: 2.x-dev
+  inline_entity_form:
+    subdir: contrib
+    version: '1.8'
+  jquery_update:
+    subdir: contrib
+    version: '2.7'
+  libraries:
+    subdir: contrib
+    version: '2.5'
+  login_destination:
+    subdir: contrib
+    veresion: '1.4'
+  magic:
+    subdir: contrib
+    version: '2.3'
+  mailsystem:
+    subdir: contrib
+    version: '2.35'
+  masquerade:
+    subdir: contrib
+    version: 1.0-rc7
+  media:
+    subdir: contrib
+    version: '2.21'
+  module_filter:
+    subdir: contrib
+    version: '2.2'
+  pathauto:
+    subdir: contrib
+    version: '1.3'
+  phone:
+    subdir: contrib
+    version: 1.0-beta1
+  print:
+    subdir: contrib
+    version: '2.2'
+  r4032login:
+    subdir: contrib
+    version: '1.8'
+  redirect:
+    subdir: contrib
+    version: 1.0-rc3
+  redis:
+    subdir: contrib
+    version: '3.17'
+  reroute_email:
+    subdir: contrib
+    version: '1.4'
+  role_delegation:
+    subdir: contrib
+    version: '1.1'
+  rules:
+    subdir: contrib
+    version: '2.12'
+  smtp:
+    subdir: contrib
+    version: '1.7'
+  strongarm:
+    subdir: contrib
+    version: '2.0'
+  telephone:
+    subdir: contrib
+    version: 1.0-alpha1
+  timeago:
+    subdir: contrib
+    version: '2.3'
+  token:
+    subdir: contrib
+    version: '1.7'
+#  unique_field:
+#    subdir: contrib
+#    version: 1.0-rc1
+  uuid:
+    subdir: contrib
+    version: 1.x-dev
+  uuid_features:
+    subdir: contrib
+    version: 1.0-rc1
+  views:
+    subdir: contrib
+    version: '3.23'
+  views_content_cache:
+    subdir: contrib
+    version: 3.0-alpha3
+  views_data_export:
+    subdir: contrib
+    version: '3.2'
+  views_date_format_sql:
+    subdir: contrib
+    version: '3.3'
+  webform:
+    subdir: contrib
+    version: '4.19'
+  workbench:
+    subdir: contrib
+    version: '1.2'
+  adminimal_theme:
+    type: theme
+    subdir: contrib
+    version: '1.25'
+libraries:
+  chosen:
+    download:
+      type: file
+      url: 'https://github.com/harvesthq/chosen/releases/download/v1.8.2/chosen_v1.8.2.zip'
+    type: library
+  timeago:
+    download:
+      type: git
+      url: 'https://github.com/rmm5t/jquery-timeago.git'
+      tag: v1.5.1
+      branch: master
+      revision: 2ea30c143a9fd3a77dda4c4a9156dfdb9cc858bb
+    type: library
