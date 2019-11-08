@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Include Features.
+ */
+include_once 'release_mgmt.features.inc';
+
+/**
+ * Implements hook_environment_switch().
+ */
+function release_mgmt_environment_switch($target_env, $current_env) {
+
+  $devel_modules = array(
+    'devel',
+    'update',
+    // Pantheon should be able to handle dblog being on all the time
+    //'dblog',
+    // Field UI is dependency in eCommerce sites
+    //'field_ui',
+    /* Context_ui is a dependency, views break when it is disabled */
+    //'context_ui',
+    //'ds_ui',
+    'reroute_email',
+  );
+
+  switch ($target_env) {
+    /* @description - Live and Test environments should have the same modules enabled / disabled in order to have consistent testing */
+    case 'production':
+      module_disable($devel_modules);
+      drupal_set_message('Disabled development modules');
+      // Disable error reporting in production
+      variable_set('rules_log_errors','3');
+      drupal_set_message('Rules: Log errors only.');
+      return;
+    /* @description - Development environments should always have development modules turned on */
+    case 'development':
+    default:
+      module_enable($devel_modules);
+      drupal_set_message('Enabled development modules');
+      // Enable error reporting in lower environments
+      variable_set('rules_log_errors','2');
+      drupal_set_message('Rules: Log all warnings and errors.');
+      return;
+  }
+}
