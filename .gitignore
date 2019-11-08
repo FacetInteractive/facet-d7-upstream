@@ -1,0 +1,18 @@
+# Implementation specific gitignore live here
+# So that we can leave the web/.gitignore to be programmatically rebuild cleanly on each deploy of drush make
+
+# Logs
+logs/*.log
+logs/*/*.log
+logs/*/*.log*.gz
+
+# Settings
+settings.*.php
+
+.idea
+.idea/*
+
+vm/
+
+# Testing artifacts
+screenshots
