@@ -1,0 +1,34 @@
+# Pantheon API
+api_version: 1
+
+# Use /web Docroot folder
+web_docroot: true
+
+# HSTS / HTTPS Config
+# https://pantheon.io/blog/pantheon-now-enforces-https-default-plus-really-simple-hsts
+enforce_https: transitional
+
+# Drush Version
+# https://pantheon.io/docs/pantheon-yml/#drush-version
+drush_version: 8
+
+# PHP Version:
+# https://pantheon.io/docs/pantheon-yml#php-version
+# Set site's PHP version to 7.0
+php_version: 7.1
+
+# Protected Web Paths
+# https://pantheon.io/docs/pantheon-yml#protected-web-paths
+protected_web_paths:
+  - /CHANGELOG.txt
+  - /COPYRIGHT.txt
+  - /INSTALL.txt
+  - /LICENSE.txt
+  - /MAINTAINERS.txt
+  - /README.txt
+  - /UPGRADE.txt
+  - /phpinfo.php
+  - /install.php
+  - /upgrade.php
+
+# @TODO - Add Workflows as standard scripts
