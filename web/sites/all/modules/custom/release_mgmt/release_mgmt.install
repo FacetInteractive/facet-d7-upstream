@@ -1,5 +1,22 @@
 <?php
 
 /**
- * Updates are executed in successive update hooks.
+ * @file - release_mgmt.install
+ *
+ *  - Track deployment commands and update hooks
  */
+
+/**
+ * Implements hook_install to reset the schema to make sure we.
+ */
+function release_mgmt_install() {
+    // Force all following updates to run
+    drupal_set_installed_schema_version('release_mgmt', 7000);
+}
+
+/**
+ * Reset the Feature is the most common deployment step.
+ */
+function release_mgmt_update_7001() {
+    features_revert_module('release_mgmt');
+}
