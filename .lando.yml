@@ -1,0 +1,62 @@
+name: my-site
+recipe: pantheon
+config:
+  php: 7.2
+  framework: drupal
+  env: dev
+# Additional mailhog proxy settings so we get a nice URL for the mailhog ui
+proxy:
+  mailhog:
+    - mail.my-site.lndo.site
+services:
+  appserver:
+    config:
+      php: config/php.ini
+    webroot: web
+    xdebug: true
+    overrides:
+      environment:
+        # Support debugging Drush with XDEBUG. Use lando drush to debug.
+        PHP_IDE_CONFIG: serverName=appserver
+    run:
+      - drush @none dl registry_rebuild-7.x
+      - /app/bin/phpcs --config-set error_severity 1
+      - /app/bin/phpcs --config-set warning_severity 8
+  pma:
+    # Use the latest version of phpmyadmin
+    type: phpmyadmin
+    hosts:
+      - database
+  mailhog:
+    # Use the latest mailhog version
+    type: mailhog
+    # List of services that we want to capture mail from
+    # You can run `lando info` to get a list of services that are available
+    # Mailhog expects that these services will be php services
+    hogfrom:
+      - appserver
+    # port rotates
+    portforward: true
+
+# Access the mailhog send cli so we can easily tests things
+tooling:
+  phpcs:
+    service: appserver
+    cmd: /app/bin/phpcs
+    description: Run phpcs for given folder or file.
+  #  phpcscomp:
+  #    service: appserver
+  #    cmd: /app/bin/phpcs -p . --standard=PHPCompatibility --runtime-set testVersion 7.1- --report-full=/app/logs/phpcs-php7.x.log -d memory_limit=1024M
+  phplint:
+    service: appserver
+    cmd: /app/bin/phplint
+  composer:
+    service: appserver
+    cmd: /usr/local/bin/composer
+  fra:
+    service: appserver
+    cmd: cd /app/web && drush php private/scripts/revert_all_features.php
+events:
+  post-db-import:
+    - appserver: /app/scripts/local_db.sh
+#    - appserver: cd /app && composer install --dev
