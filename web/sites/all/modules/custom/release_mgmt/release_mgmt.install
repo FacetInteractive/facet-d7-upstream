@@ -7,7 +7,7 @@
  */
 
 /**
- * Implements hook_install to reset the schema to make sure we.
+ * Implements hook_install to reset the schema to make sure we run all updates sequentially.
  */
 function release_mgmt_install() {
     // Force all following updates to run
