@@ -44,9 +44,9 @@ tooling:
     service: appserver
     cmd: /app/bin/phpcs
     description: Run phpcs for given folder or file.
-  #  phpcscomp:
-  #    service: appserver
-  #    cmd: /app/bin/phpcs -p . --standard=PHPCompatibility --runtime-set testVersion 7.1- --report-full=/app/logs/phpcs-php7.x.log -d memory_limit=1024M
+  phpcscomp:
+    service: appserver
+    cmd: /app/bin/phpcs -p . --standard=PHPCompatibility --runtime-set testVersion 7.2- --report-full=/app/logs/phpcs-php7.x.log -d memory_limit=1024M
   phplint:
     service: appserver
     cmd: /app/bin/phplint
@@ -59,4 +59,4 @@ tooling:
 events:
   post-db-import:
     - appserver: /app/scripts/local_db.sh
-#    - appserver: cd /app && composer install --dev
+    - appserver: cd /app && composer install --dev
