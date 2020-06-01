@@ -111,7 +111,7 @@ _slack_notification($secrets['slack_url'], $secrets['slack_channel'], $secrets['
  */
 function _get_secrets($requiredKeys, $defaults)
 {
-  $secretsFile = $_SERVER['HOME'] . '/code/private/secrets/secrets-facet.json';
+  $secretsFile = $_SERVER['HOME'] . '/code/secrets/slack.json';
   if (!file_exists($secretsFile)) {
     die('No secrets file found. Aborting!');
   }
