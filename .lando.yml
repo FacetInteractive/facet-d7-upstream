@@ -14,6 +14,9 @@ services:
       php: config/php.ini
     webroot: web
     xdebug: true
+    composer:
+      squizlabs/php_codesniffer: '2.9.2'
+      drupal/coder: '8.2.12'
     overrides:
       environment:
         # Support debugging Drush with XDEBUG. Use lando drush to debug.
